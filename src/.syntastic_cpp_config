@@ -1,0 +1,3 @@
+-I../include
+-I/opt/comThrift/include
+-I/usr/local/include/thrift
