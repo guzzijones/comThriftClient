@@ -1,5 +1,5 @@
 #include "distData.h"  // As an example
-
+#include <iostream>
 #include <transport/TSocket.h>
 #include <transport/TBufferTransports.h>
 #include <protocol/TBinaryProtocol.h>
@@ -18,9 +18,15 @@ int main(int argc, char **argv) {
   distDataClient client(protocol);
   transport->open();
   client.ping();
+  directory myDir;
+  client.listFilesDir(myDir,"/home/ajonen8940/","");
+  std::cout << "here: " << std::endl; 
+  for (std::vector<file>::iterator it = myDir.files.begin();it!=myDir.files.end();++it){
+         std::cout <<"filename: " <<  it->name << std::endl;
+  }
    
- result feedBack;
- client.runCmd(feedBack,"ls -al");
+// result feedBack;
+// client.runCmd(feedBack,"ls -al");
   transport->close();
 
   return 0;
