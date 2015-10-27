@@ -19,10 +19,10 @@ int main(int argc, char **argv) {
   transport->open();
   client.ping();
   directory myDir;
-  client.listFilesDir(myDir,"/home/ajonen8940/","");
+  client.listFilesDir(myDir,"/home/","ajonen");
   std::cout << "here: " << std::endl; 
   for (std::vector<file>::iterator it = myDir.files.begin();it!=myDir.files.end();++it){
-         std::cout <<"filename: " <<  it->name << std::endl;
+         std::cout <<"filename: " <<  it->name << " fileType: " << it->thefileType << std::endl;
   }
    
 // result feedBack;
